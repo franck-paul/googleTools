@@ -1,8 +1,8 @@
-<?php /* -*- tab-width: 5; indent-tabs-mode: t; c-basic-offset: 5 -*- */
+<?php
 /***************************************************************\
- *  This is 'Google Stuff', a plugin for Dotclear 2              *
+ *  This is 'Google Stuff', a plugin for Dotclear 2            *
  *                                                             *
- *  Copyright (c) 2008                                         *
+ *  Copyright (c) 2013                                         *
  *  xave and contributors.                                     *
  *                                                             *
  *  This is an open source software, distributed under the GNU *
@@ -42,6 +42,5 @@ class googlestuffAdminBehaviours
 		$settings->googlestuff->put('googlestuff_uacct',empty($_POST['googlestuff_uacct'])?"":$_POST['googlestuff_uacct'],'string');
 		$settings->googlestuff->put('googlestuff_verify',empty($_POST['googlestuff_verify'])?"":$_POST['googlestuff_verify'],'string');
 	}
-	
 }
 ?>

@@ -1,8 +1,8 @@
-<?php /* -*- tab-width: 5; indent-tabs-mode: t; c-basic-offset: 5 -*- */
+<?php
 /***************************************************************\
- *  This is 'Google Stuff', a plugin for Dotclear 2              *
+ *  This is 'Google Stuff', a plugin for Dotclear 2            *
  *                                                             *
- *  Copyright (c) 2008                                         *
+ *  Copyright (c) 2013                                         *
  *  xave and contributors.                                     *
  *                                                             *
  *  This is an open source software, distributed under the GNU *
@@ -15,10 +15,10 @@
 \***************************************************************/
 
 $this->registerModule(
-	/* Name */		"Google Tools",
+	/* Name */			"Google Tools",
 	/* Description*/	"Handles Google tools (Analytics & Webmaster Tools)",
 	/* Author */		"xave",
-	/* Version */	'0.4',
+	/* Version */		'0.5',
 	/* Permissions */	'contentadmin'
 );
 ?>
