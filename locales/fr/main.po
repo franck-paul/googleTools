@@ -1,17 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-18 18:02+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: brol <contact@brol.info>\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
 
 msgid "Google Analytics UACCT (ID):"
 msgstr "Identifiant Google Analytics (UACCT)&nbsp;:"
 
 msgid "Google Webmaster Tools verification:"
 msgstr "Code de vérification pour Google Webmaster Tools&nbsp;:"
-
