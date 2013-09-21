@@ -18,6 +18,7 @@ class googlestuffAdminBehaviours
 {
 	public static function adminBlogPreferencesForm($core,$settings)
 	{
+		$settings->addNameSpace('googlestuff');
 		echo
 		'<div class="fieldset"><h4>Google Stuff</h4>'.
 		'<div class="two-boxes odd">'.
