@@ -11,6 +11,9 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+// dead but useful code, in order to have translations
+__('Google Tools').__('Handles Google tools (Analytics & Webmaster Tools)');
+
 $core->addBehavior('adminBlogPreferencesForm',array('googlestuffAdminBehaviours','adminBlogPreferencesForm'));
 $core->addBehavior('adminBeforeBlogSettingsUpdate',array('googlestuffAdminBehaviours','adminBeforeBlogSettingsUpdate'));
 
