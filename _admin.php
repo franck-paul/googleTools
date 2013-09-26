@@ -44,4 +44,3 @@ class googlestuffAdminBehaviours
 		$settings->googlestuff->put('googlestuff_verify',empty($_POST['googlestuff_verify'])?"":$_POST['googlestuff_verify'],'string');
 	}
 }
-?>

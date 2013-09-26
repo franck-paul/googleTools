@@ -11,8 +11,6 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-global $core;
-
 $this_version = $core->plugins->moduleInfo('googlestuff','version');
 $installed_version = $core->getVersion('googlestuff');
 
@@ -27,4 +25,3 @@ $core->blog->settings->googlestuff->put('googlestuff_verify','','string','Google
 $core->setVersion('googlestuff',$this_version);
 
 return true;
-?>
