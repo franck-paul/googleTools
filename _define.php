@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"Google Tools",
 	/* Description*/	"Handles Google tools (Analytics & Webmaster Tools)",
 	/* Author */		"xave",
-	/* Version */		'0.5',
+	/* Version */		'0.6',
 	array(
 		/* Permissions */	'permissions' =>	'contentadmin',
 		/* Type */			'type' =>			'plugin'

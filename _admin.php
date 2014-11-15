@@ -35,6 +35,8 @@ class googlestuffAdminBehaviours
 		form::field('googlestuff_verify',50,100,$settings->googlestuff->googlestuff_verify,3).
 		'</label></p>'.
 		'</div>'.
+		'<p>'.form::checkbox('cnil_cookies', 1, $core->blog->settings->googlestuff->cnil_cookies).
+		'<label class="classic" for="cnil_cookies">'.__('Includes CNIL consent for Google Analytics tracking cookies').'</label>'.'</p>'.
 		'</div>';
 	}
 	public static function adminBeforeBlogSettingsUpdate($settings)
@@ -42,5 +44,6 @@ class googlestuffAdminBehaviours
 		$settings->addNameSpace('googlestuff');
 		$settings->googlestuff->put('googlestuff_uacct',empty($_POST['googlestuff_uacct'])?"":$_POST['googlestuff_uacct'],'string');
 		$settings->googlestuff->put('googlestuff_verify',empty($_POST['googlestuff_verify'])?"":$_POST['googlestuff_verify'],'string');
+		$settings->googlestuff->put('cnil_cookies',empty($_POST['cnil_cookies'])?"":$_POST['cnil_cookies'],'boolean');
 	}
 }

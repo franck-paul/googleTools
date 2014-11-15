@@ -30,6 +30,16 @@ class googlestuffPublicBehaviours
 				'_gaq.push([\'_setAccount\', \''.$core->blog->settings->googlestuff->googlestuff_uacct.'\']);'."\n".
 				'_gaq.push([\'_trackPageview\']);'."\n".
 				'</script>'."\n";
+
+			if ($core->blog->settings->googlestuff->cnil_cookies) {
+				// Includes French CNIL consent check if required
+				$res .= '<script type="text/javascript">'."\n".
+					'var gaProperty = \''.$core->blog->settings->googlestuff->googlestuff_uacct.'\''."\n".
+					'var cnil_txt_query = \' '.__('This site use Google Analytics cookies in order to tracking visits. If you want to avoid this, click <a href="javascript:gaOptout()">here</a>.').' \';'."\n".
+					'var cnil_txt_denied = \' '.__('No Google Analytics cookies will be created for tracking your visits on this site.').' \';'."\n".
+					'</script>'."\n";
+				$res .= '<script type="text/javascript" src="'.html::stripHostURL($core->blog->getQmarkURL().'pf=googleTools/js/cnil.js').'"></script>'."\n";
+			}
 		}
 
 		echo $res;

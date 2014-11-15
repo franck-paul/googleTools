@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-24 13:27+0200\n"
+"POT-Creation-Date: 2014-11-15 13:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -23,3 +23,12 @@ msgstr "Identifiant Google Analytics (UACCT)&nbsp;:"
 
 msgid "Google Webmaster Tools verification:"
 msgstr "Code de vérification pour Google Webmaster Tools&nbsp;:"
+
+msgid "Includes CNIL consent for Google Analytics tracking cookies"
+msgstr "Inclure le système de consentement imposé par la CNIL pour les cookies Google Analytics de suivi d'audience"
+
+msgid "This site use Google Analytics cookies in order to tracking visits. If you want to avoid this, click <a href=\"javascript:gaOptout()\">here</a>."
+msgstr "Ce site utilise des cookies Google Analytics pour suivre vos visites. Si vous voulez éviter ceci, cliquer sur ce <a href=\"javascript:gaOptout()\">lien</a>."
+
+msgid "No Google Analytics cookies will be created for tracking your visits on this site."
+msgstr "Aucun cookie Google Analytics ne sera créé pour suivre vos visites sur ce site."
