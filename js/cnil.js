@@ -61,9 +61,9 @@ function delCookie(name )   {
 
 // Efface tous les types de cookies utilisés par Google Analytics
 function deleteAnalyticsCookies() {
-    var cookieNames = ["__utma","__utmb","__utmc","__utmz","_ga"]
+    var cookieNames = ["__utma","__utmb","__utmc","__utmz","_ga"];
     for (var i=0; i<cookieNames.length; i++)
-        delCookie(cookieNames[i])
+        delCookie(cookieNames[i]);
 }
 
 // La fonction d'opt-out
@@ -73,7 +73,7 @@ function gaOptout() {
     var div = document.getElementById('cookie-banner');
     // Ci dessous le code de la bannière affichée une fois que l'utilisateur s'est opposé au dépôt
     // Vous pouvez modifier le contenu et le style
-    if ( div!= null ) div.innerHTML = '<div style="background-color:#fff;color:#000;">'+cnil_txt_denied+'</div>'
+    if ( div !== null ) div.innerHTML = '<div style="background-color:#fff;color:#000;">'+cnil_txt_denied+'</div>';
     window[disableStr] = true;
     deleteAnalyticsCookies();
 }
