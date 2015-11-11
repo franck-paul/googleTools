@@ -17,6 +17,7 @@ $this->registerModule(
 	/* Author */		"xave",
 	/* Version */		'0.6',
 	array(
+        /* Dependencies */	'requires' =>        array(array('core','2.9')),
 		/* Permissions */	'permissions' =>	'contentadmin',
 		/* Type */			'type' =>			'plugin'
 	)
