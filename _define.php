@@ -1,24 +1,26 @@
 <?php
-# -- BEGIN LICENSE BLOCK ----------------------------------
-# This file is part of googleTools, a plugin for Dotclear 2.
-#
-# Copyright (c) xave and contributors
-#
-# Licensed under the GPL version 2.0 license.
-# A copy of this license is available in LICENSE file or at
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-# -- END LICENSE BLOCK ------------------------------------
+/**
+ * @brief googleTools, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @author xave and contributors
+ *
+ * @copyright xave
+ * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Google Tools",
-	/* Description*/	"Handles Google tools (Analytics & Webmaster Tools)",
-	/* Author */		"xave",
-	/* Version */		'0.6',
-	array(
-        /* Dependencies */	'requires' =>        array(array('core','2.9')),
-		/* Permissions */	'permissions' =>	'contentadmin',
-		/* Type */			'type' =>			'plugin'
-	)
+    "Google Tools",                                       // Name
+    "Handles Google tools (Analytics & Webmaster Tools)", // Description
+    "xave",                                               // Author
+    '0.6',                                                // Version
+    array(
+        'requires'    => array(array('core', '2.9')), // Dependencies
+        'permissions' => 'contentadmin',              // Permissions
+        'type'        => 'plugin'                    // Type
+    )
 );
