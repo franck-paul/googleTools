@@ -13,8 +13,8 @@
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('publicHeadContent', array('googlestuffPublicBehaviours', 'publicHeadContent'));
-$core->addBehavior('publicFooterContent', array('googlestuffPublicBehaviours', 'publicFooterContent'));
+$core->addBehavior('publicHeadContent', ['googlestuffPublicBehaviours', 'publicHeadContent']);
+$core->addBehavior('publicFooterContent', ['googlestuffPublicBehaviours', 'publicFooterContent']);
 
 class googlestuffPublicBehaviours
 {

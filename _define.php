@@ -17,10 +17,10 @@ $this->registerModule(
     "Google Tools",                                       // Name
     "Handles Google tools (Analytics & Webmaster Tools)", // Description
     "xave",                                               // Author
-    '0.6',                                                // Version
-    array(
-        'requires'    => array(array('core', '2.9')), // Dependencies
+    '0.7',                                                // Version
+    [
+        'requires'    => [['core', '2.13']], // Dependencies
         'permissions' => 'contentadmin',              // Permissions
         'type'        => 'plugin'                    // Type
-    )
+    ]
 );
