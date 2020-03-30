@@ -25,18 +25,15 @@ class googlestuffAdminBehaviours
     {
         $settings->addNameSpace('googlestuff');
         echo
-        '<div class="fieldset"><h4>Google Stuff</h4>' .
-        '<div class="two-boxes odd">' .
+        '<div class="fieldset"><h4 id="google-tools">Google Stuff</h4>' .
         '<p><label>' .
         __('Google Analytics UACCT (ID):') . " " .
         form::field('googlestuff_uacct', 25, 50, $settings->googlestuff->googlestuff_uacct, 3) .
         '</label></p>' .
-        '</div><div class="two-boxes even">' .
         '<p><label>' .
         __('Google Webmaster Tools verification:') . " " .
         form::field('googlestuff_verify', 50, 100, $settings->googlestuff->googlestuff_verify, 3) .
         '</label></p>' .
-        '</div>' .
         '<p>' . form::checkbox('cnil_cookies', 1, $core->blog->settings->googlestuff->cnil_cookies) .
         '<label class="classic" for="cnil_cookies">' . __('Includes CNIL consent for Google Analytics tracking cookies') . '</label>' . '</p>' .
             '</div>';

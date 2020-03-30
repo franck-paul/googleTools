@@ -19,8 +19,12 @@ $this->registerModule(
     "xave",                                               // Author
     '0.7',                                                // Version
     [
-        'requires'    => [['core', '2.13']], // Dependencies
-        'permissions' => 'contentadmin',              // Permissions
-        'type'        => 'plugin'                    // Type
+        'requires'    => [['core', '2.16']],                           // Dependencies
+        'permissions' => 'contentadmin',                               // Permissions
+        'type'        => 'plugin',                                     // Type
+        'support'     => 'https://github.com/franck-paul/googleTools', // Support URL
+        'settings'    => [
+            'blog' => '#params.google-tools'
+        ]
     ]
 );

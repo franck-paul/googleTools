@@ -1,6 +1,9 @@
-/*global gaProperty:true, cnil_txt_query, cnil_txt_denied */
+/*global getData */
 /*exported gaOptout */
 'use strict';
+
+let cnil_data = getData('googletools_cnil');
+var gaProperty = cnil_data.uacct;
 
 /*
     Gestion du cookie de consentement du tracking (obligation légale en France)
@@ -35,7 +38,7 @@ function askConsent() {
   div.setAttribute('width', '70%');
   // Le code HTML de la demande de consentement
   // Vous pouvez modifier le contenu ainsi que le style
-  div.innerHTML = `<div style="background-color:#fff;color:#000;">${cnil_txt_query$}</div>`;
+  div.innerHTML = `<div style="background-color:#fff;color:#000;">${cnil_data.query}</div>`;
   bodytag.insertBefore(div, bodytag.firstChild); // Ajoute la bannière juste au début de la page
   document.getElementsByTagName('body')[0].className += ' cookiebanner';
 }
@@ -73,7 +76,7 @@ function gaOptout() {
   const div = document.getElementById('cookie-banner');
   // Ci dessous le code de la bannière affichée une fois que l'utilisateur s'est opposé au dépôt
   // Vous pouvez modifier le contenu et le style
-  if (div !== null) div.innerHTML = `<div style="background-color:#fff;color:#000;">${cnil_txt_denied}</div>`;
+  if (div !== null) div.innerHTML = `<div style="background-color:#fff;color:#000;">${cnil_data.denied}</div>`;
   window[disableStr] = true;
   deleteAnalyticsCookies();
 }
