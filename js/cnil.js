@@ -1,8 +1,8 @@
-/*global getData */
+/*global dotclear */
 /*exported gaOptout */
 'use strict';
 
-let cnil_data = getData('googletools_cnil');
+let cnil_data = dotclear.getData('googletools_cnil');
 var gaProperty = cnil_data.uacct;
 
 /*

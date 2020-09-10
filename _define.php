@@ -17,9 +17,9 @@ $this->registerModule(
     "Google Tools",                                       // Name
     "Handles Google tools (Analytics & Webmaster Tools)", // Description
     "xave",                                               // Author
-    '0.7',                                                // Version
+    '0.8',                                                // Version
     [
-        'requires'    => [['core', '2.16']],                           // Dependencies
+        'requires'    => [['core', '2.17']],                           // Dependencies
         'permissions' => 'contentadmin',                               // Permissions
         'type'        => 'plugin',                                     // Type
         'support'     => 'https://github.com/franck-paul/googleTools', // Support URL
