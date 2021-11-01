@@ -29,6 +29,6 @@ $this->registerModule(
 
         'details'    => 'https://open-time.net/?q=googleTools',       // Details URL
         'support'    => 'https://github.com/franck-paul/googleTools', // Support URL
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/main/dcstore.xml'
+        'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/master/dcstore.xml'
     ]
 );
