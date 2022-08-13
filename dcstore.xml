@@ -1,11 +1,11 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="googleTools">
     <name>Google Tools</name>
-    <version>0.8</version>
+    <version>0.9</version>
     <author>xave</author>
     <desc>Handles Google tools (Analytics &amp; Webmaster Tools)</desc>
-    <file>https://github.com/franck-paul/googleTools/releases/download/0.8/plugin-googleTools-0.8.zip</file>
-    <da:dcmin>2.17</da:dcmin>
+    <file>https://github.com/franck-paul/googleTools/releases/download/0.9/plugin-googleTools-0.9.zip</file>
+    <da:dcmin>2.23</da:dcmin>
     <da:details>https://open-time.net/?q=googleTools</da:details>
     <da:support>https://github.com/franck-paul/googleTools</da:support>
   </module>
