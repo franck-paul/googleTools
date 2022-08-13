@@ -2,8 +2,8 @@
 /*exported gaOptout */
 'use strict';
 
-let cnil_data = dotclear.getData('googletools_cnil');
-var gaProperty = cnil_data.uacct;
+const cnil_data = dotclear.getData('googletools_cnil');
+let gaProperty = cnil_data.uacct;
 
 /*
     Gestion du cookie de consentement du tracking (obligation légale en France)
@@ -17,17 +17,16 @@ gaProperty = gaProperty || '';
 
 const disableStr = `ga-disable-${gaProperty}`;
 
-if (document.cookie.indexOf('hasConsent=false') > -1) {
+if (document.cookie.includes('hasConsent=false')) {
   window[disableStr] = true;
 }
 //Cette fonction retourne la date d’expiration du cookie de consentement
 
 function getCookieExpireDate() {
-  const cookieTimeout = 34214400000; // Le nombre de millisecondes que font 13 mois
+  const cookieTimeout = 34_214_400_000; // Le nombre de millisecondes que font 13 mois
   const date = new Date();
   date.setTime(date.getTime() + cookieTimeout);
-  const expires = `; expires=${date.toGMTString()}`;
-  return expires;
+  return `; expires=${date.toGMTString()}`;
 }
 
 // Cette fonction est appelée pour afficher la demande de consentement
@@ -46,7 +45,7 @@ function askConsent() {
 // Retourne la chaine de caractère correspondant à nom=valeur
 function getCookie(NomDuCookie) {
   if (document.cookie.length > 0) {
-    let begin = document.cookie.indexOf(NomDuCookie + '=');
+    let begin = document.cookie.indexOf(`${NomDuCookie}=`);
     if (begin != -1) {
       begin += NomDuCookie.length + 1;
       let end = document.cookie.indexOf(';', begin);
@@ -86,12 +85,12 @@ function gaOptout() {
 const consentCookie = getCookie('hasConsent');
 if (!consentCookie) { //L'utilisateur n'a pas encore de cookie de consentement
   const referrer_host = document.referrer.split('/')[2];
-  if (referrer_host != document.location.hostname) { //si il vient d'un autre site
+  if (referrer_host == document.location.hostname) { //sinon on lui dépose un cookie
+    document.cookie = `hasConsent=true; ${getCookieExpireDate()} ; path=/`;
+  } else { //si il vient d'un autre site
     //on désactive le tracking et on affiche la demande de consentement
     window[disableStr] = true;
     window[disableStr] = true;
     window.onload = askConsent;
-  } else { //sinon on lui dépose un cookie
-    document.cookie = `hasConsent=true; ${getCookieExpireDate()} ; path=/`;
   }
 }
