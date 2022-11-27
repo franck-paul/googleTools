@@ -17,12 +17,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // dead but useful code, in order to have translations
 __('Google Tools') . __('Handles Google tools (Analytics & Webmaster Tools)');
 
-dcCore::app()->addBehavior('adminBlogPreferencesForm', ['googlestuffAdminBehaviours', 'adminBlogPreferencesForm']);
-dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['googlestuffAdminBehaviours', 'adminBeforeBlogSettingsUpdate']);
-
 class googlestuffAdminBehaviours
 {
-    public static function adminBlogPreferencesForm($core, $settings)
+    public static function adminBlogPreferencesForm($settings)
     {
         $settings->addNameSpace('googlestuff');
         echo
@@ -47,3 +44,6 @@ class googlestuffAdminBehaviours
         $settings->googlestuff->put('cnil_cookies', empty($_POST['cnil_cookies']) ? '' : $_POST['cnil_cookies'], 'boolean');
     }
 }
+
+dcCore::app()->addBehavior('adminBlogPreferencesFormV2', [googlestuffAdminBehaviours::class, 'adminBlogPreferencesForm']);
+dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', [googlestuffAdminBehaviours::class, 'adminBeforeBlogSettingsUpdate']);

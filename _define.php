@@ -15,20 +15,22 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'Google Tools',                                       // Name
-    'Handles Google tools (Analytics & Webmaster Tools)', // Description
-    'xave',                                               // Author
-    '0.9.1',
+    'Google Tools',
+    'Handles Google tools (Analytics & Webmaster Tools)',
+    'xave',
+    '1.0',
     [
-        'requires'    => [['core', '2.23']],                           // Dependencies
-        'permissions' => 'contentadmin',                               // Permissions
-        'type'        => 'plugin',                                     // Type
-        'settings'    => [
+        'requires'    => [['core', '2.24']],
+        'permissions' => dcCore::app()->auth->makePermissions([
+            dcAuth::PERMISSION_CONTENT_ADMIN,
+        ]),
+        'type'     => 'plugin',
+        'settings' => [
             'blog' => '#params.google-tools',
         ],
 
-        'details'    => 'https://open-time.net/?q=googleTools',       // Details URL
-        'support'    => 'https://github.com/franck-paul/googleTools', // Support URL
+        'details'    => 'https://open-time.net/?q=googleTools',
+        'support'    => 'https://github.com/franck-paul/googleTools',
         'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/master/dcstore.xml',
     ]
 );
