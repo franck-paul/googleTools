@@ -17,7 +17,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $this_version      = (string) dcCore::app()->plugins->moduleInfo('googlestuff', 'version');
 $installed_version = (string) dcCore::app()->getVersion('googlestuff');
 
-if (version_compare($installed_version, $this_version, '>=')) {
+if (version_compare((string) $installed_version, $this_version, '>=')) {
     return;
 }
 
