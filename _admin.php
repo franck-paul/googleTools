@@ -21,7 +21,6 @@ class googlestuffAdminBehaviours
 {
     public static function adminBlogPreferencesForm($settings)
     {
-        $settings->addNameSpace('googlestuff');
         echo
         '<div class="fieldset"><h4 id="google-tools">Google Stuff</h4>' .
         '<p><label>' .
@@ -38,12 +37,13 @@ class googlestuffAdminBehaviours
     }
     public static function adminBeforeBlogSettingsUpdate($settings)
     {
-        $settings->addNameSpace('googlestuff');
         $settings->googlestuff->put('googlestuff_uacct', empty($_POST['googlestuff_uacct']) ? '' : $_POST['googlestuff_uacct'], 'string');
         $settings->googlestuff->put('googlestuff_verify', empty($_POST['googlestuff_verify']) ? '' : $_POST['googlestuff_verify'], 'string');
         $settings->googlestuff->put('cnil_cookies', empty($_POST['cnil_cookies']) ? '' : $_POST['cnil_cookies'], 'boolean');
     }
 }
 
-dcCore::app()->addBehavior('adminBlogPreferencesFormV2', [googlestuffAdminBehaviours::class, 'adminBlogPreferencesForm']);
-dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', [googlestuffAdminBehaviours::class, 'adminBeforeBlogSettingsUpdate']);
+dcCore::app()->addBehaviors([
+    'adminBlogPreferencesFormV2'    => [googlestuffAdminBehaviours::class, 'adminBlogPreferencesForm'],
+    'adminBeforeBlogSettingsUpdate' => [googlestuffAdminBehaviours::class, 'adminBeforeBlogSettingsUpdate'],
+]);
