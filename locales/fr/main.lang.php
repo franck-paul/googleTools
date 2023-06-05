@@ -11,9 +11,9 @@
 
 use Dotclear\Helper\L10n;
 
-L10n::$locales['Google Tools'] = '';
+L10n::$locales['Google Tools'] = 'Google Tools';
 L10n::$locales['Handles Google tools (Analytics & Webmaster Tools)'] = 'Gestion des outils Google (Analytics et Webmaster)';
-L10n::$locales['Google Stuff'] = '';
+L10n::$locales['Google Stuff'] = 'Google Stuff';
 L10n::$locales['Google Analytics UACCT (ID):'] = 'Identifiant Google Analytics (UACCT)&nbsp;:';
 L10n::$locales['Google Webmaster Tools verification:'] = 'Code de vérification pour Google Webmaster Tools&nbsp;:';
 L10n::$locales['Includes CNIL consent for Google Analytics tracking cookies'] = 'Inclure le système de consentement imposé par la CNIL pour les cookies Google Analytics de suivi d\'audience';
