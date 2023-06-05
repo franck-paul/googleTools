@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-15 13:04+0100\n"
+"POT-Creation-Date: 2023-06-05 18:39+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "Handles Google tools (Analytics & Webmaster Tools)"
 msgstr "Gestion des outils Google (Analytics et Webmaster)"
+
+msgid "Google Stuff"
+msgstr ""
 
 msgid "Google Analytics UACCT (ID):"
 msgstr "Identifiant Google Analytics (UACCT)&nbsp;:"
