@@ -34,7 +34,7 @@ class FrontendBehaviors
 
             $res .= dcUtils::jsJson('googletools_ga', ['uacct' => $uacct]) .
                 '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $uacct . '"></script>' .
-                dcUtils::jsModuleLoad(My::id() . '/js/ga.js');
+                My::jsLoad('ga.js');
 
             if ($settings->cnil_cookies) {
                 // Includes French CNIL consent check if required
@@ -43,7 +43,7 @@ class FrontendBehaviors
                     'query'  => __('This site use Google Analytics cookies in order to tracking visits. If you want to avoid this, click <a href="javascript:gaOptout()">here</a>.'),
                     'denied' => __('No Google Analytics cookies will be created for tracking your visits on this site.'),
                 ]) .
-                dcUtils::jsModuleLoad(My::id() . '/js/cnil.js');
+                My::jsLoad('cnil.js');
             }
         }
 

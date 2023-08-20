@@ -64,8 +64,8 @@ function delCookie(name) {
 // Efface tous les types de cookies utilisés par Google Analytics
 function deleteAnalyticsCookies() {
   const cookieNames = ['__utma', '__utmb', '__utmc', '__utmz', '_ga'];
-  for (let i = 0; i < cookieNames.length; i++)
-    delCookie(cookieNames[i]);
+  for (const element of cookieNames)
+    delCookie(element);
 }
 
 // La fonction d'opt-out
@@ -89,7 +89,6 @@ if (!consentCookie) { //L'utilisateur n'a pas encore de cookie de consentement
     document.cookie = `hasConsent=true; ${getCookieExpireDate()} ; path=/`;
   } else { //si il vient d'un autre site
     //on désactive le tracking et on affiche la demande de consentement
-    window[disableStr] = true;
     window[disableStr] = true;
     window.onload = askConsent;
   }
