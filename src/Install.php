@@ -48,14 +48,14 @@ class Install extends Process
                         $settings->rename('googlestuff_' . $name, $name);
                     }
                 };
-                $settings = dcCore::app()->blog->settings->get(My::id());
+                $settings = My::settings();
                 foreach (['uacct', 'verify'] as $name) {
                     $rename($name, $settings);
                 }
             }
 
             // Init
-            $settings = dcCore::app()->blog->settings->get(My::id());
+            $settings = My::settings();
             $settings->put('uacct', '', dcNamespace::NS_STRING, 'Google Analytics PageTracker ID', false, true);
             $settings->put('verify', '', dcNamespace::NS_STRING, 'Google Webmaster Tools Verify code', false, true);
             $settings->put('cnil_cookies', false, dcNamespace::NS_BOOL, 'Includes CNIL consent for Google Analytics tracking cookies', false, true);

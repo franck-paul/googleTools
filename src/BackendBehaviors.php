@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\googleTools;
 
-use dcCore;
 use dcNamespace;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -28,7 +27,7 @@ class BackendBehaviors
 {
     public static function adminBlogPreferencesForm($settings)
     {
-        $settings = dcCore::app()->blog->settings->get(My::id());
+        $settings = My::settings();
 
         echo
         (new Fieldset('google-tools'))
@@ -59,7 +58,7 @@ class BackendBehaviors
 
     public static function adminBeforeBlogSettingsUpdate()
     {
-        $settings = dcCore::app()->blog->settings->get(My::id());
+        $settings = My::settings();
 
         $settings->put('uacct', empty($_POST['googlestuff_uacct']) ? '' : $_POST['googlestuff_uacct'], dcNamespace::NS_STRING);
         $settings->put('verify', empty($_POST['googlestuff_verify']) ? '' : $_POST['googlestuff_verify'], dcNamespace::NS_STRING);
