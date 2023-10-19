@@ -18,7 +18,7 @@ use dcUtils;
 
 class FrontendBehaviors
 {
-    public static function publicHeadContent()
+    public static function publicHeadContent(): string
     {
         $settings = My::settings();
 
@@ -47,5 +47,7 @@ class FrontendBehaviors
         }
 
         echo $res;
+
+        return '';
     }
 }

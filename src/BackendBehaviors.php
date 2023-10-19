@@ -25,7 +25,7 @@ use Dotclear\Helper\Html\Html;
 
 class BackendBehaviors
 {
-    public static function adminBlogPreferencesForm($settings)
+    public static function adminBlogPreferencesForm(): string
     {
         $settings = My::settings();
 
@@ -54,14 +54,18 @@ class BackendBehaviors
             ]),
         ])
         ->render();
+
+        return '';
     }
 
-    public static function adminBeforeBlogSettingsUpdate()
+    public static function adminBeforeBlogSettingsUpdate(): string
     {
         $settings = My::settings();
 
         $settings->put('uacct', empty($_POST['googlestuff_uacct']) ? '' : $_POST['googlestuff_uacct'], dcNamespace::NS_STRING);
         $settings->put('verify', empty($_POST['googlestuff_verify']) ? '' : $_POST['googlestuff_verify'], dcNamespace::NS_STRING);
         $settings->put('cnil_cookies', !empty($_POST['cnil_cookies']), dcNamespace::NS_BOOL);
+
+        return '';
     }
 }
