@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\googleTools;
 
-use dcUtils;
+use Dotclear\Helper\Html\Html;
 
 class FrontendBehaviors
 {
@@ -31,13 +31,13 @@ class FrontendBehaviors
         if ($settings->uacct != '') {
             $uacct = $settings->uacct;
 
-            $res .= dcUtils::jsJson('googletools_ga', ['uacct' => $uacct]) .
+            $res .= Html::jsJson('googletools_ga', ['uacct' => $uacct]) .
                 '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $uacct . '"></script>' .
                 My::jsLoad('ga.js');
 
             if ($settings->cnil_cookies) {
                 // Includes French CNIL consent check if required
-                $res .= dcUtils::jsJson('googletools_cnil', [
+                $res .= Html::jsJson('googletools_cnil', [
                     'uacct'  => $uacct,
                     'query'  => __('This site use Google Analytics cookies in order to tracking visits. If you want to avoid this, click <a href="javascript:gaOptout()">here</a>.'),
                     'denied' => __('No Google Analytics cookies will be created for tracking your visits on this site.'),

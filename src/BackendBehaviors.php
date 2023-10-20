@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\googleTools;
 
-use dcNamespace;
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Input;
@@ -62,9 +62,9 @@ class BackendBehaviors
     {
         $settings = My::settings();
 
-        $settings->put('uacct', empty($_POST['googlestuff_uacct']) ? '' : $_POST['googlestuff_uacct'], dcNamespace::NS_STRING);
-        $settings->put('verify', empty($_POST['googlestuff_verify']) ? '' : $_POST['googlestuff_verify'], dcNamespace::NS_STRING);
-        $settings->put('cnil_cookies', !empty($_POST['cnil_cookies']), dcNamespace::NS_BOOL);
+        $settings->put('uacct', empty($_POST['googlestuff_uacct']) ? '' : $_POST['googlestuff_uacct'], App::blogWorkspace()::NS_STRING);
+        $settings->put('verify', empty($_POST['googlestuff_verify']) ? '' : $_POST['googlestuff_verify'], App::blogWorkspace()::NS_STRING);
+        $settings->put('cnil_cookies', !empty($_POST['cnil_cookies']), App::blogWorkspace()::NS_BOOL);
 
         return '';
     }

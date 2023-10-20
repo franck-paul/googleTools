@@ -14,10 +14,9 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\googleTools;
 
-use dcCore;
-use dcNamespace;
 use Dotclear\App;
 use Dotclear\Core\Process;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 class Install extends Process
@@ -35,16 +34,16 @@ class Install extends Process
 
         try {
             // Update
-            $old_version = dcCore::app()->getVersion(My::id());
+            $old_version = App::version()->getVersion(My::id());
             if (version_compare((string) $old_version, '2.0', '<')) {
                 // Rename settings namespace
                 if (App::blog()->settings()->exists('googlestuff')) {
-                    App::blog()->settings()->delNamespace(My::id());
-                    App::blog()->settings()->renNamespace('googlestuff', My::id());
+                    App::blog()->settings()->delWorkspace(My::id());
+                    App::blog()->settings()->renWorkspace('googlestuff', My::id());
                 }
 
                 // Change settings names (remove googlestuff_ prefix in them)
-                $rename = function (string $name, dcNamespace $settings): void {
+                $rename = function (string $name, BlogWorkspaceInterface $settings): void {
                     if ($settings->settingExists('googlestuff_' . $name, true)) {
                         $settings->rename('googlestuff_' . $name, $name);
                     }
@@ -57,11 +56,11 @@ class Install extends Process
 
             // Init
             $settings = My::settings();
-            $settings->put('uacct', '', dcNamespace::NS_STRING, 'Google Analytics PageTracker ID', false, true);
-            $settings->put('verify', '', dcNamespace::NS_STRING, 'Google Webmaster Tools Verify code', false, true);
-            $settings->put('cnil_cookies', false, dcNamespace::NS_BOOL, 'Includes CNIL consent for Google Analytics tracking cookies', false, true);
+            $settings->put('uacct', '', App::blogWorkspace()::NS_STRING, 'Google Analytics PageTracker ID', false, true);
+            $settings->put('verify', '', App::blogWorkspace()::NS_STRING, 'Google Webmaster Tools Verify code', false, true);
+            $settings->put('cnil_cookies', false, App::blogWorkspace()::NS_BOOL, 'Includes CNIL consent for Google Analytics tracking cookies', false, true);
         } catch (Exception $e) {
-            dcCore::app()->error->add($e->getMessage());
+            App::error()->add($e->getMessage());
         }
 
         return true;
