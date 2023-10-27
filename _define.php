@@ -14,7 +14,7 @@ $this->registerModule(
     'Google Tools',
     'Handles Google tools (Analytics & Webmaster Tools)',
     'xave',
-    '4.0',
+    '4.1',
     [
         'requires'    => [['core', '2.28']],
         'permissions' => 'My',

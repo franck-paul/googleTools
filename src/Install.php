@@ -43,7 +43,7 @@ class Install extends Process
                 }
 
                 // Change settings names (remove googlestuff_ prefix in them)
-                $rename = function (string $name, BlogWorkspaceInterface $settings): void {
+                $rename = static function (string $name, BlogWorkspaceInterface $settings) : void {
                     if ($settings->settingExists('googlestuff_' . $name, true)) {
                         $settings->rename('googlestuff_' . $name, $name);
                     }
@@ -59,8 +59,8 @@ class Install extends Process
             $settings->put('uacct', '', App::blogWorkspace()::NS_STRING, 'Google Analytics PageTracker ID', false, true);
             $settings->put('verify', '', App::blogWorkspace()::NS_STRING, 'Google Webmaster Tools Verify code', false, true);
             $settings->put('cnil_cookies', false, App::blogWorkspace()::NS_BOOL, 'Includes CNIL consent for Google Analytics tracking cookies', false, true);
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return true;
