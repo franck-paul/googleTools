@@ -25,7 +25,7 @@ class FrontendBehaviors
         $res = '';
 
         if ($settings->verify != '') {
-            $res .= '<meta name="google-site-verification" content="' . $settings->verify . '" />' . "\n";
+            $res .= '<meta name="google-site-verification" content="' . $settings->verify . '">' . "\n";
         }
 
         if ($settings->uacct != '') {
