@@ -46,10 +46,10 @@ function askConsent() {
 function getCookie(NomDuCookie) {
   if (document.cookie.length > 0) {
     let begin = document.cookie.indexOf(`${NomDuCookie}=`);
-    if (begin != -1) {
+    if (begin !== -1) {
       begin += NomDuCookie.length + 1;
       let end = document.cookie.indexOf(';', begin);
-      if (end == -1) end = document.cookie.length;
+      if (end === -1) end = document.cookie.length;
       return decodeURIComponent(document.cookie.substring(begin, end));
     }
   }
@@ -64,8 +64,7 @@ function delCookie(name) {
 // Efface tous les types de cookies utilisés par Google Analytics
 function deleteAnalyticsCookies() {
   const cookieNames = ['__utma', '__utmb', '__utmc', '__utmz', '_ga'];
-  for (const element of cookieNames)
-    delCookie(element);
+  for (const element of cookieNames) delCookie(element);
 }
 
 // La fonction d'opt-out
@@ -83,11 +82,14 @@ function gaOptout() {
 //Ce bout de code vérifie que le consentement n'a pas déjà été obtenu avant d'afficher
 // la baniére
 const consentCookie = getCookie('hasConsent');
-if (!consentCookie) { //L'utilisateur n'a pas encore de cookie de consentement
+if (!consentCookie) {
+  //L'utilisateur n'a pas encore de cookie de consentement
   const referrer_host = document.referrer.split('/')[2];
-  if (referrer_host == document.location.hostname) { //sinon on lui dépose un cookie
+  if (referrer_host === document.location.hostname) {
+    //sinon on lui dépose un cookie
     document.cookie = `hasConsent=true; ${getCookieExpireDate()} ; path=/`;
-  } else { //si il vient d'un autre site
+  } else {
+    //si il vient d'un autre site
     //on désactive le tracking et on affiche la demande de consentement
     window[disableStr] = true;
     window.onload = askConsent;
