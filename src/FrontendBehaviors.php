@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief googleTools, a plugin for Dotclear 2
  *
@@ -20,22 +21,20 @@ class FrontendBehaviors
 {
     public static function publicHeadContent(): string
     {
-        $settings = My::settings();
-
         $res = '';
 
-        if ($settings->verify != '') {
-            $res .= '<meta name="google-site-verification" content="' . $settings->verify . '">' . "\n";
+        if (My::settings()->verify) {
+            $res .= '<meta name="google-site-verification" content="' . My::settings()->verify . '">' . "\n";
         }
 
-        if ($settings->uacct != '') {
-            $uacct = $settings->uacct;
+        if (My::settings()->uacct) {
+            $uacct = My::settings()->uacct;
 
             $res .= Html::jsJson('googletools_ga', ['uacct' => $uacct]) .
                 '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $uacct . '"></script>' .
                 My::jsLoad('ga.js');
 
-            if ($settings->cnil_cookies) {
+            if (My::settings()->cnil_cookies) {
                 // Includes French CNIL consent check if required
                 $res .= Html::jsJson('googletools_cnil', [
                     'uacct'  => $uacct,
