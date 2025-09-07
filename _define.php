@@ -18,7 +18,7 @@ $this->registerModule(
     '4.3',
     [
         'date'        => '2025-02-14T08:35:40+0100',
-        'requires'    => [['core', '2.28']],
+        'requires'    => [['core', '2.36']],
         'permissions' => 'My',
         'type'        => 'plugin',
         'settings'    => [
@@ -28,5 +28,6 @@ $this->registerModule(
         'details'    => 'https://open-time.net/?q=googleTools',
         'support'    => 'https://github.com/franck-paul/googleTools',
         'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/main/dcstore.xml',
+        'license'    => 'gpl2',
     ]
 );
