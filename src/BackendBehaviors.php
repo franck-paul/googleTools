@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief googleTools, a plugin for Dotclear 2
  *
@@ -29,6 +30,9 @@ class BackendBehaviors
     {
         $settings = My::settings();
 
+        $verify = is_string($verify = My::settings()->verify) ? $verify : '';
+        $uacct  = is_string($uacct = My::settings()->uacct) ? $uacct : '';
+
         echo
         (new Fieldset('google-tools'))
         ->legend((new Legend(__('Google Stuff'))))
@@ -37,14 +41,14 @@ class BackendBehaviors
                 (new Input('googlestuff_uacct'))
                     ->size(25)
                     ->maxlength(50)
-                    ->value(Html::escapeHTML($settings->uacct))
+                    ->value(Html::escapeHTML($uacct))
                     ->label((new Label(__('Google Analytics UACCT (ID):'), Label::INSIDE_TEXT_BEFORE))),
             ]),
             (new Para())->items([
                 (new Input('googlestuff_verify'))
                     ->size(50)
                     ->maxlength(100)
-                    ->value(Html::escapeHTML($settings->verify))
+                    ->value(Html::escapeHTML($verify))
                     ->label((new Label(__('Google Webmaster Tools verification:'), Label::INSIDE_TEXT_BEFORE))),
             ]),
             (new Para())->items([

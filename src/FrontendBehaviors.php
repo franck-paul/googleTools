@@ -23,13 +23,14 @@ class FrontendBehaviors
     {
         $res = '';
 
-        if (My::settings()->verify) {
-            $res .= '<meta name="google-site-verification" content="' . My::settings()->verify . '">' . "\n";
+        $verify = is_string($verify = My::settings()->verify) ? $verify : '';
+        $uacct  = is_string($uacct = My::settings()->uacct) ? $uacct : '';
+
+        if ($verify !== '') {
+            $res .= '<meta name="google-site-verification" content="' . $verify . '">' . "\n";
         }
 
-        if (My::settings()->uacct) {
-            $uacct = My::settings()->uacct;
-
+        if ($uacct !== '') {
             $res .= Html::jsJson('googletools_ga', ['uacct' => $uacct]) .
                 '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $uacct . '"></script>' .
                 My::jsLoad('ga.js');
