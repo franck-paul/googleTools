@@ -15,9 +15,9 @@ $this->registerModule(
     'Google Tools',
     'Handles Google tools (Analytics & Webmaster Tools)',
     'xave',
-    '5.2',
+    '5.3',
     [
-        'date'        => '2026-04-07T14:00:30+0200',
+        'date'        => '2026-05-06T17:32:07+0200',
         'requires'    => [['core', '2.36']],
         'permissions' => 'My',
         'type'        => 'plugin',
