@@ -3,7 +3,7 @@
 
 dotclear.ready(() => {
   const ga_data = dotclear.getData('googletools_ga');
-  window.dataLayer = window.dataLayer || [];
+  globalThis.dataLayer = globalThis.dataLayer || [];
   const gtag = (...args) => {
     dataLayer.push(args);
   };
