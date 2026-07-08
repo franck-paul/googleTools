@@ -23,8 +23,8 @@ class FrontendBehaviors
     {
         $res = '';
 
-        $verify = is_string($verify = My::settings()->verify) ? $verify : '';
-        $uacct  = is_string($uacct = My::settings()->uacct) ? $uacct : '';
+        $verify = My::settings()->getStr('verify', false);
+        $uacct  = My::settings()->getStr('uacct', false);
 
         if ($verify !== '') {
             $res .= '<meta name="google-site-verification" content="' . $verify . '">' . "\n";
@@ -35,7 +35,7 @@ class FrontendBehaviors
                 '<script async src="https://www.googletagmanager.com/gtag/js?id=' . $uacct . '"></script>' .
                 My::jsLoad('ga.js');
 
-            if (My::settings()->cnil_cookies) {
+            if (My::settings()->getBool('cnil_cookies')) {
                 // Includes French CNIL consent check if required
                 $res .= Html::jsJson('googletools_cnil', [
                     'uacct'  => $uacct,

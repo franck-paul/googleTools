@@ -30,8 +30,8 @@ class BackendBehaviors
     {
         $settings = My::settings();
 
-        $verify = is_string($verify = My::settings()->verify) ? $verify : '';
-        $uacct  = is_string($uacct = My::settings()->uacct) ? $uacct : '';
+        $verify = My::settings()->getStr('verify', false);
+        $uacct  = My::settings()->getStr('uacct', false);
 
         echo
         (new Fieldset('google-tools'))
@@ -52,7 +52,7 @@ class BackendBehaviors
                     ->label((new Label(__('Google Webmaster Tools verification:'), Label::INSIDE_TEXT_BEFORE))),
             ]),
             (new Para())->items([
-                (new Checkbox('cnil_cookies', (bool) $settings->cnil_cookies))
+                (new Checkbox('cnil_cookies', $settings->getBool('cnil_cookies', false)))
                     ->value(1)
                     ->label((new Label(__('Includes CNIL consent for Google Analytics tracking cookies'), Label::INSIDE_TEXT_AFTER))),
             ]),
