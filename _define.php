@@ -11,23 +11,27 @@
  * @copyright xave
  * @copyright GPL-2.0 https://www.gnu.org/licenses/gpl-2.0.html
  */
-$this->registerModule(
-    'Google Tools',
-    'Handles Google tools (Analytics & Webmaster Tools)',
-    'xave',
-    '6.0',
-    [
-        'date'        => '2026-08-03T09:57:51+0200',
-        'requires'    => [['core', '2.39']],
-        'permissions' => 'My',
-        'type'        => 'plugin',
-        'settings'    => [
-            'blog' => '#params.google-tools',
-        ],
+declare(strict_types=1);
 
-        'details'    => 'https://open-time.net/?q=googleTools',
-        'support'    => 'https://github.com/franck-paul/googleTools',
-        'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/main/dcstore.xml',
-        'license'    => 'gpl2',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Google Tools',
+        'Handles Google tools (Analytics & Webmaster Tools)',
+        'xave',
+        '6.0',
+        [
+            'date'        => '2026-08-03T09:57:51+0200',
+            'requires'    => [['core', '2.39']],
+            'permissions' => 'My',
+            'type'        => 'plugin',
+            'settings'    => [
+                'blog' => '#params.google-tools',
+            ],
+
+            'details'    => 'https://open-time.net/?q=googleTools',
+            'support'    => 'https://github.com/franck-paul/googleTools',
+            'repository' => 'https://raw.githubusercontent.com/franck-paul/googleTools/main/dcstore.xml',
+            'license'    => 'gpl2',
+        ]
+    );
+}
