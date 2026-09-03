@@ -46,9 +46,9 @@ class Install
                 }
 
                 // Change settings names (remove googlestuff_ prefix in them)
-                $rename = static function (string $name, BlogWorkspaceInterface $settings): void {
-                    if ($settings->settingExists('googlestuff_' . $name, true)) {
-                        $settings->rename('googlestuff_' . $name, $name);
+                $rename = static function (string $name, BlogWorkspaceInterface $blogWorkspace): void {
+                    if ($blogWorkspace->settingExists('googlestuff_' . $name, true)) {
+                        $blogWorkspace->rename('googlestuff_' . $name, $name);
                     }
                 };
                 $settings = My::settings();
